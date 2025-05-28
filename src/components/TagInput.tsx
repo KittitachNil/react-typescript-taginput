@@ -111,7 +111,7 @@ const TagInput: React.FC<TagInputProps> = ({
         onKeyDown={handleInputKeyDown}
         onBlur={handleInputBlur}
         placeholder={placeholder}
-        className="flex-1 min-w-[500px] p-1 outline-none bg-transparent"
+        className="flex-1 min-w-[100px] p-1 outline-none bg-transparent"
         style={{ width: `${inputValue.length > 0 ? inputValue.length + 1 : 10}ch` }} // ปรับความกว้างตามเนื้อหา
       />
       {maxTags && tags.length >= maxTags && (

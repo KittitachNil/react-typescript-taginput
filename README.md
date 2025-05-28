@@ -1,54 +1,36 @@
-# React + TypeScript + Vite
+TagInput Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##########################################################
 
-Currently, two official plugins are available:
+คอมโพเนนต์ TagInput เป็น Input field ที่มีความยืดหยุ่นสำหรับจัดการ Tag โดยสามารถเพิ่มและลบ Tag ได้ รองรับการตั้งค่าจำนวน Tag สูงสุด และสามารถกำหนดตัวคั่น (Separator) สำหรับการเพิ่ม Tag ได้
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+คุณสมบัติหลัก (Features)
 
-## Expanding the ESLint configuration
+1. เพิ่มและลบ Tag: ผู้ใช้สามารถเพิ่ม Tag ได้โดยการพิมพ์ข้อความแล้วกด Enter หรือพิมพ์ตัวคั่นที่กำหนดไว้ และสามารถลบ Tag ได้โดยการคลิกที่ปุ่ม x บนแต่ละ Tag
+2. รองรับ initialTags: สามารถกำหนด Tag เริ่มต้นให้กับ Input ได้
+3. จำกัดจำนวน Tag (maxTags): กำหนดจำนวน Tag สูงสุดที่สามารถเพิ่มได้
+4. ตัวคั่นที่ปรับแต่งได้ (separator): กำหนดตัวอักษรหรือสัญลักษณ์ที่ใช้คั่น Tag (เช่น , หรือ ;)
+5. Placeholder ที่ปรับแต่งได้ (placeholder): กำหนดข้อความที่จะแสดงใน Input field เมื่อไม่มี Tag
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+#########################################################
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+การใช้งาน
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- ทำการ Import คอมโพเนนต์ TagInput ในไฟล์ที่คุณต้องการใช้งาน โดยเขียน import ดังนี้
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import Taginput from "./components/TagInput";
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+#########################################################
+
+Prop. ของคอมโพแนนต์ TagInput มีดังนี้
+
+- initialTags: Array ของ Tag เริ่มต้นที่จะแสดงใน Input
+- onTagsChange: Callback function ที่จะถูกเรียกเมื่อ Tag มีการเปลี่ยนแปลง โดยจะส่ง Array ของ Tag ล่าสุดกลับไป
+- separator: ตัวคั่นที่ใช้ในการแยก Tag (เช่น , หรือ ;)
+- maxTags: จำนวน Tag สูงสุดที่สามารถเพิ่มได้
+- placeholder: ข้อความที่จะแสดงใน Input field เมื่อไม่มี Tag
+
+#########################################################
+
+Example ของ คอมโพแนนต์ TagInput นี้ สามารถดูได้ในไฟล์ App.tsx
+โดยการสั่งรัน npm run dev เพื่อเปิด localhost โดยเบื้องต้นให้เข้าที่ localhost:5173
